@@ -94,7 +94,7 @@ failure. See "From walkthrough to real test" below.
 
 This is real, working code (adapted from the sibling `demo-playwright-rust`
 repo) that exercises all four concepts against a public fixture page built
-for this purpose, https://testingexamples.github.io.
+for this purpose, https://testingexamples.github.io/en-001/practice/.
 
 ```rust
 use playwright_rs::{Page, Playwright, SelectOption};
@@ -114,7 +114,7 @@ async fn main() -> anyhow::Result<()> {
 }
 
 async fn run_demo(page: &Page) -> anyhow::Result<()> {
-    page.goto("https://testingexamples.github.io", None).await?;
+    page.goto("https://testingexamples.github.io/en-001/practice/", None).await?;
 
     // Find an element by id.
     let element_by_id = page.locator("#id-example-1");
@@ -176,7 +176,7 @@ async fn id_example_has_expected_text() -> anyhow::Result<()> {
     let pw = playwright_rs::Playwright::launch().await?;
     let browser = pw.chromium().launch().await?;
     let page = browser.new_page().await?;
-    page.goto("https://testingexamples.github.io", None).await?;
+    page.goto("https://testingexamples.github.io/en-001/practice/", None).await?;
 
     let text = page.locator("#id-example-1").text_content().await?.unwrap_or_default();
     assert_eq!(text, "Id Example 1");
@@ -215,7 +215,7 @@ snippets.
 
 - https://github.com/testingexamples/demo-playwright-rust — the
   locator-strategy walkthrough this skill's worked example is drawn from,
-  run against the free fixture page https://testingexamples.github.io/.
+  run against the free fixture page https://testingexamples.github.io/en-001/practice/.
 - https://github.com/testingexamples/demo-playwright-rust-for-nhs-wales — a
   real test suite with real assertions, run against https://www.nhs.wales/.
 - https://github.com/testingexamples/demo-playwright-rust-for-google-search
@@ -227,7 +227,7 @@ snippets.
   treat them as syntax references, not as suites meant to be run repeatedly
   against the live sites.
 - https://docs.rs/playwright-rs — API reference.
-- https://testingexamples.github.io/ — the free fixture page used by the
+- https://testingexamples.github.io/en-001/practice/ — the free fixture page used by the
   non-Google demos above; safe to run against repeatedly.
 
 ---
